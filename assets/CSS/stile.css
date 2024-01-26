@@ -1,0 +1,129 @@
+/*inizio body*/
+
+body{
+   font-size: 1.2rem;
+   margin-top: auto;
+   font-family: 'Open Sans', sans-serif;
+   line-height: 1.65;
+   border: 0;
+   margin: 0;
+   background-position: center;
+   line-height: 1.65;
+}
+
+* {box-sizing: border-box;}
+
+/*header*/
+
+header{
+    background-color: black;
+    text-align: center;
+
+}
+header nav{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2em;
+    background-image: url('../img/banner.jpg');
+    background-size:contain;
+}
+
+/*heading*/
+
+h1, h2{
+    letter-spacing: 1.5;
+    color: #25a2c3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1em;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
+/*nav*/
+
+nav a{
+    color:white;
+    background-color: #f04c2f;
+    background-size: 4rem;
+    
+}
+
+/*inizio main*/
+
+main{
+    background-color: white;
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+article img{
+    text-align: center;
+    border-radius: 50%;
+   margin: 0 auto;
+   width: 100%;
+   
+}
+div{
+    background-color: #e22d0e;
+    padding: 2em;
+    color: white;
+    text-align: center;
+
+}
+div h1{
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+
+}
+div p{
+    font-style: italic;
+}
+   
+/*section*/
+
+
+section{
+    background-color: white;
+    padding: 2em;
+    margin: 40px;
+    border: 1px black;
+    margin-top: auto;
+    
+
+}
+section img{
+    width: 100%;   
+ }
+
+/*footer*/
+
+footer{
+    text-align: center;
+    font-size: 0.5em;
+    background-color: #25a2c3;
+    color: white;
+    font-style: #c8e7f0;
+    ;
+
+}
+footer h1{
+    color: white;
+    font-size: 3rem;
+}
+a{
+    color: white;
+    font-size: medium;
+
+}
+footer p{
+    font-size: medium;
+
+}

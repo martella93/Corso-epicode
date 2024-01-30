@@ -37,7 +37,7 @@ console.log(10+20);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let x="12";
+let x=12;
 
 /* ESERCIZIO 5
   Riassegna un nuovo valore alla variabile "myName" già esistente: il tuo cognome.

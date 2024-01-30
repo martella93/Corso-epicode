@@ -79,16 +79,17 @@ else{
   Modifica la risposta precedente includendo questa nuova promozione nell'algoritmo, determinando come prima se le spedizioni sono gratuite oppure no e e calcolando il totale.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+/* SCRIVI QUI LA TUA RISPOSTA */ 
+let blackfriday=0.8;
 let totalShoppingCart2= (75 * blackfriday);
 let spedizione2=10;
-blackfriday=0.8;
+
 if(totalShoppingCart2 >50) {
   document.getElementById("sconto").innerHTML= "costo ordine" + totalShoppingCart2 ;
 }
 
 else{
-  document.getElementById("sconto").innerHTML="costo ordine" + totalShoppingCart2 + spedizione;
+  document.getElementById("sconto").innerHTML="costo ordine" + (totalShoppingCart2 + spedizione);
 }
 /* ESERCIZIO 7
   Crea tre variabili, e assegna un valore numerico a ciascuna di esse.
@@ -109,13 +110,19 @@ let nume3=14;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let testo="ciao";
+if(typeof testo=== "number"){
+  document.getElementById("tipo").innerHTML= "è un numero";
+}
+else{document.getElementById("tipo").innerHTML= "non è un numero";
 
+}
 /* ESERCIZIO 9
   Crea un algoritmo per controllare se un numero fornito sia pari o dispari (suggerimento: cerca l'operatore modulo su un motore di ricerca)
 */
 let number=12;
 
-if(number/2){
+if(number %2===0){
   document.getElementById("pari").innerHTML= "pari";
 }
 else{
@@ -148,7 +155,7 @@ const me = {
 }
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
+me.city="Toronto";
 /* ESERCIZIO 12
   Lavorando sempre sull'oggetto precedentemente fornito, scrivi del codice per rimuovere la proprietà "lastName".
 */
@@ -158,7 +165,7 @@ delete me.lastName;
 /* ESERCIZIO 13
   Lavorando sempre sull'oggetto precedentemente fornito, scrivi del codice per rimuovere l'ultimo elemento della proprietà "skills".
 */
-delete me.skills[2];
+me.skills.pop();
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* ESERCIZIO 14
@@ -184,5 +191,4 @@ newArray[9]=10;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const numeri=[1,2,3,4,5,6,7,8,9,10];
-numeri[9]=100;
+myArrey[9]=100;

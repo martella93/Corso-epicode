@@ -99,8 +99,31 @@ else{
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 let num1=5;
-let nume2=6;
-let nume3=14;
+let num2=6;
+let num3=14;
+let arrayOrdina= document.getElementById("arrayOrdina"); //serve a non scrivere sempre getElementById
+if (num1 > num2) {
+	if (num3 > num1) {
+		arrayOrdina.innerHTML = num3 + ', ' + num1+ ', ' + num2;
+	} else {
+		if (num3 > num2) {
+			arrayOrdina.innerHTML = num1 + ', ' + num3 + ', ' + num2;
+		} else {
+			arrayOrdina.innerHTML = num1 + ', ' + num2 + ', ' + num3;
+		}
+	}
+} else {
+	if (num3 > num2) {
+		arrayOrdina.innerHTML = num3 + ', ' + num2 + ', ' + num1;
+	} else {
+		if (num3 > num1) {
+			arrayOrdina.innerHTML = num2 + ', ' + num3 + ', ' + num1;
+		} else {
+			arrayOrdina.innerHTML = num2 + ', ' + num1 + ', ' + num3;
+		}
+	}
+}
+
 
 
 
@@ -130,17 +153,17 @@ else{
 }
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-/* ESERCIZIO 10
-  Modifica la logica del seguente algoritmo in modo che mostri in console il messaggio corretto in ogni circostanza.
+ //ESERCIZIO 10
+ // Modifica la logica del seguente algoritmo in modo che mostri in console il messaggio corretto in ogni circostanza.
   let val = 7
   if (val < 10) {
-      console.log("Meno di 10");
+      console.log("Meno di 5");
     } else if (val < 5) {
-      console.log("maggiore di 5");
+      console.log("maggiore di 10");
     } else {
-      console.log("");
+      console.log("uguale o maggiore di 10");
     }
-*/
+
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
@@ -175,20 +198,21 @@ me.skills.pop();
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 const newArray=[];
-newArray[0]=1;
-newArray[1]=2;
-newArray[2]=3;
-newArray[3]=4;
-newArray[4]=5;
-newArray[5]=6;
-newArray[6]=7;
-newArray[7]=8;
-newArray[8]=9;
-newArray[9]=10;
+newArray.push[0]=1;
+newArray.push[1]=2;
+newArray.push[2]=3;
+newArray.push[3]=4;
+newArray.push[4]=5;
+newArray.push[5]=6;
+newArray.push[6]=7;
+newArray.push[7]=8;
+newArray.push[8]=9;
+newArray.push[9]=10;
 
 /* ESERCIZIO 15
   Scrivi del codice per sostituire l'ultimo elemento dell'array, ovvero il valore 10, con il valore 100.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-myArrey[9]=100;
+
+newArray.push[9]=100;

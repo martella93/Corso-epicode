@@ -119,8 +119,8 @@ const numericArray = [
 while(i<numericArray.length){
   if(numericArray === 32){
   console.log(numericArray[i]);
+  }
   i++;
-}
 }
 
 /* ESERCIZIO 10

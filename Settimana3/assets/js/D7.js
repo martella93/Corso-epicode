@@ -185,19 +185,18 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-const vecchio = (array) => {
-  let result = { Year: 2100 };
-  array.forEach((movie) => {
-    let currentYear = parseInt(movie.Year);
-    if (currentYear < result.Year) {
-      result = movie;
+function vecchio() {
+  let anno = 2100;
+  movies.forEach((element) => {
+    if (Number(element.Year) < anno) {
+      anno = Number(element.Year);
     }
   });
 
-  return result;
+  console.log(anno);
 };
 
-console.log(vecchio(movies));
+console.log(vecchio);
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.

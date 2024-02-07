@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix con HTML/JS</title>
+</head>
+<body>
+    
+    <h1>Cerca il tuo film</h1>
+
+    <select id="elenco">  <!-- CREARE L'ELENCO A TENDINA-->
+        <option value="" selected></option> <!--QUESTA OPTION SI CHIMA DI CORTESIA: FA IN MODO CHE IL CLIENTE NON TROVI UN VALORE GIà SELEZIONATO-->
+    </select>
+    <button type="button" id="scegli">SCEGLI</button> <!--CREO UN BUTTON PER SCEGLIERE IL FILM-->
+
+    <hr />
+
+    <div class="film">
+        <h2 id="titolo"></h2>           <!--MI CREO LA MIA STRUTTURA HTML. UNA VOLTA SCELTO IL FILM MI DEVONO USCIRE TUTTE LE INFORMAZIONI SU QUEL FILM-->
+        <h3 id="anno"></h3>
+        <div id="locandina"></div>
+        <p>&nbsp;</p>
+        <div id="trailer"></div>
+    </div>
+
+    <script src="assets/js/netflix.js"></script>
+</body>
+</html>

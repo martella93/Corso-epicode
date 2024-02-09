@@ -24,7 +24,7 @@ const carica = () => {
 const scrivoLista = () => {
     lista.innerHTML = '';
     tasks.forEach((element, index) => {
-        lista.innerHTML += `<li>${element}&nbsp;<button type="button" onclick="elimina(${index});">❌</button></li>`
+        lista.innerHTML += `<li>${element}&nbsp;<button type="button" onclick="elimina(${index});">cancella</button></li>`
 
     });
     cancellaForm();

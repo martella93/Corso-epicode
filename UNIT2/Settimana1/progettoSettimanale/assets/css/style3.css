@@ -1,0 +1,223 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #ffc017;
+  border-bottom: 1px solid #191919;
+  padding: 25px;
+  position: sticky;
+  top: 0;
+
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav .menu {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+#start {
+  background-color: #191919;
+  color: white;
+  border-radius: 100px;
+  
+}
+.container {
+  background-color: #ffc017;
+  display: flex;
+  border-bottom: 1px solid #191919;
+  justify-content: end;
+}
+.titolo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60%;
+  padding: 100px;
+}
+
+
+.start {
+  display: flex;
+}
+
+.schermo {
+  width: 80%;
+  color: #191919;
+}
+h1 {
+  font-size: 5.5em;
+  
+}
+
+.titolo h3 {
+  font-size: 1.5 rem;
+  padding: 10px;
+}
+.start {
+  background-color: #191919;
+  color: white;
+  border-radius: 100px;
+  height: 20px;
+  padding: 18px;
+  margin-top: 60px;
+}
+
+
+.trending {
+  display: flex;
+  padding-top: 60px;
+  margin-left: 10%;
+  padding-bottom: 20px
+}
+.trending h6 {
+  padding: 7px;
+  font-size: 1rem;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 10%;
+  margin-bottom: 1px solid #191919;
+  height: 50vh;
+}
+.article {
+  width: 33%;
+  margin-bottom: 20px;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.immagine {
+  display: flex;
+ 
+  padding-bottom: 10px;
+}
+
+.immagine p {
+  padding: 10px;
+  
+}
+h4 {
+  padding: 10px;
+}
+.data {
+  padding: 10px;
+  padding-top: 0;
+  color: gray;
+}
+.number{
+  color: gray;
+  float: left;
+  padding: 10px;
+}
+
+
+#articoli{
+  width: 45vw;
+  margin-left: 40px;
+}
+
+#container-articolo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.articolo{
+margin-bottom: 2rem;
+display: flex;
+justify-content: space-between;
+}
+.testo {
+width: 70%;
+}
+.foto {
+  width: 30%;
+}
+
+.autore {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 0.5rem;
+}
+
+.avatar {
+width: 2rem;
+margin-right: 1rem;
+width: 100%;
+border-radius: 50%;
+}
+
+.data {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+font-weight: 300;
+
+}
+.materia{
+  border: 1px solid gray;
+  border-radius: 100%;
+  background-color: rgb(235, 234, 234);
+  height: 20px;
+  padding: 5px;
+}
+.materia img{
+  margin-left:10px;
+}
+
+#container2{
+  display: flex;
+  margin-top: 100px;
+}
+
+
+aside{
+  margin-left: 270px;
+position: sticky;
+  top: 6rem;
+}
+
+
+#items{
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+
+}
+#items div{
+ 
+  width: 20%;
+  border: 1px solid gray;
+  padding:20px;
+  color: gray;
+  border-radius: 5px;
+  margin: 10px;
+ 
+}
+
+footer{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+footer div{
+  padding: 5px;
+  color: gray;
+}
+

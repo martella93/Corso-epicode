@@ -12,7 +12,6 @@ header {
   padding: 25px;
   position: sticky;
   top: 0;
-
 }
 nav {
   display: flex;
@@ -29,7 +28,6 @@ nav .menu {
   background-color: #191919;
   color: white;
   border-radius: 100px;
-  
 }
 .container {
   background-color: #ffc017;
@@ -37,14 +35,13 @@ nav .menu {
   border-bottom: 1px solid #191919;
   justify-content: end;
 }
-.titolo{
+.titolo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 60%;
   padding: 100px;
 }
-
 
 .start {
   display: flex;
@@ -56,7 +53,6 @@ nav .menu {
 }
 h1 {
   font-size: 5.5em;
-  
 }
 
 .titolo h3 {
@@ -72,12 +68,11 @@ h1 {
   margin-top: 60px;
 }
 
-
 .trending {
   display: flex;
   padding-top: 60px;
   margin-left: 10%;
-  padding-bottom: 20px
+  padding-bottom: 20px;
 }
 .trending h6 {
   padding: 7px;
@@ -101,13 +96,11 @@ h1 {
 }
 .immagine {
   display: flex;
- 
   padding-bottom: 10px;
 }
 
 .immagine p {
   padding: 10px;
-  
 }
 h4 {
   padding: 10px;
@@ -117,14 +110,13 @@ h4 {
   padding-top: 0;
   color: gray;
 }
-.number{
+.number {
   color: gray;
   float: left;
   padding: 10px;
 }
 
-
-#articoli{
+#articoli {
   width: 45vw;
   margin-left: 40px;
 }
@@ -136,88 +128,91 @@ h4 {
   align-items: flex-start;
 }
 
-.articolo{
-margin-bottom: 2rem;
-display: flex;
-justify-content: space-between;
+.articolo {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 .testo {
-width: 70%;
+  width: 70%;
 }
 .foto {
   width: 30%;
 }
 
 .autore {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .avatar {
-width: 2rem;
-margin-right: 1rem;
-width: 100%;
-border-radius: 50%;
+  width: 2rem;
+  margin-right: 1rem;
+  width: 100%;
+  border-radius: 50%;
 }
 
 .data {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-font-weight: 300;
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 300;
 }
-.materia{
+.text {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.materia {
   border: 1px solid gray;
-  border-radius: 100%;
+  border-radius: 100px;
   background-color: rgb(235, 234, 234);
-  height: 20px;
-  padding: 5px;
-}
-.materia img{
-  margin-left:10px;
+  padding: 7px;
+  margin-left: 10px;
 }
 
-#container2{
+.data img {
+  margin-left: 10px;
+}
+.materia img {
+  margin-left: 10px;
+}
+
+#container2 {
   display: flex;
   margin-top: 100px;
+  border-top: 1px solid #191919;
+  padding-top: 100px;
 }
 
-
-aside{
+aside {
   margin-left: 270px;
-position: sticky;
+  position: sticky;
   top: 6rem;
 }
 
-
-#items{
+#items {
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid gray;
   padding-bottom: 20px;
-
 }
-#items div{
- 
+#items div {
   width: 20%;
   border: 1px solid gray;
-  padding:20px;
+  padding: 20px;
   color: gray;
   border-radius: 5px;
   margin: 10px;
- 
 }
 
-footer{
+footer {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
 }
-footer div{
+footer div {
   padding: 5px;
   color: gray;
 }
-

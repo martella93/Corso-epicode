@@ -5,6 +5,7 @@ body {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+/*HEADER*/
 
 header {
   background-color: #ffc017;
@@ -29,6 +30,10 @@ nav .menu {
   color: white;
   border-radius: 100px;
 }
+
+
+/*CONTAINER 1 */
+
 .container {
   background-color: #ffc017;
   display: flex;
@@ -41,10 +46,6 @@ nav .menu {
   align-items: flex-start;
   width: 60%;
   padding: 100px;
-}
-
-.start {
-  display: flex;
 }
 
 .schermo {
@@ -66,7 +67,10 @@ h1 {
   height: 20px;
   padding: 18px;
   margin-top: 60px;
+ display: flex;
 }
+
+/* MAIN */
 
 .trending {
   display: flex;
@@ -78,6 +82,8 @@ h1 {
   padding: 7px;
   font-size: 1rem;
 }
+
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -90,6 +96,13 @@ h1 {
   width: 33%;
   margin-bottom: 20px;
 }
+
+.number {
+  color: gray;
+  float: left;
+  padding: 10px;
+}
+
 .vertical {
   display: flex;
   flex-direction: column;
@@ -110,11 +123,8 @@ h4 {
   padding-top: 0;
   color: gray;
 }
-.number {
-  color: gray;
-  float: left;
-  padding: 10px;
-}
+
+/* CONTAINER 2 */
 
 #articoli {
   width: 45vw;
@@ -153,7 +163,10 @@ h4 {
   width: 100%;
   border-radius: 50%;
 }
-
+.avatar img{
+  float: left;
+  padding-right: 10px;
+}
 .data {
   display: flex;
   justify-content: flex-start;
@@ -185,6 +198,8 @@ h4 {
   border-top: 1px solid #191919;
   padding-top: 100px;
 }
+
+/* ASIDE E FOOTER */
 
 aside {
   margin-left: 270px;

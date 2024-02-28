@@ -1,0 +1,11 @@
+@mixin border{
+    border-radius: 40px;
+}
+@mixin box{
+    box-shadow:  0 8px 16px rgba(0, 0, 0, 0.1);;
+}
+
+@mixin padding{
+    padding: 20px;
+    margin-left: 60px;
+}

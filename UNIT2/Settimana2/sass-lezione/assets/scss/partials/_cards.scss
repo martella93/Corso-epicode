@@ -1,0 +1,15 @@
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 200px;
+}
+
+.cards {
+  padding: 10px;
+  width: 80%;
+  img {
+    border-radius: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}

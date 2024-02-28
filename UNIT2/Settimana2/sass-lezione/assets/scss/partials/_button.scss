@@ -1,0 +1,23 @@
+button{
+    padding: 10px;
+    color: white;
+    border-radius: 40px;
+    border: 0;
+    margin: 4px;
+    
+    &:hover{
+        width: 10%;
+        height: 10%;
+    }
+
+}
+#approfondisci{
+    background-color: #0e6cff;
+    
+}
+#accedi{
+    background-color: #ff8700;
+}
+#contattaci{
+    background-color: #4caf50;
+}

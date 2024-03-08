@@ -79,11 +79,11 @@ const createCards = (product) => {
 const mostraProdotti = async () => {
     try {
         const products = await fetchProducts();
-        const cardsContainer = document.getElementById('cards');
+        const containerCards= document.getElementById('cards');
 
         products.forEach((product) => {
             const card = createCards(product);
-            cardsContainer.appendChild(card);
+            containerCards.appendChild(card);
         });
     } catch (error) {
         console.error('Error showing products:', error);

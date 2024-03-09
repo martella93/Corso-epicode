@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             const updatedProductData = Object.fromEntries(formData.entries());
 
             try {
-                const updateResponse = await fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
+                const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                     throw new Error('errore');
                 }
 
-                const updatedProduct = await updateResponse.json();
+                const product = await updateResponse.json();
 
 
                 window.location.href = 'homepage.html';
@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
 
 
-        document.getElementById('deleteButton').addEventListener('click', async () => {
+        document.getElementById('delete').addEventListener('click', async () => {
             try {
                 const deleteResponse = await fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
                     method: 'DELETE',

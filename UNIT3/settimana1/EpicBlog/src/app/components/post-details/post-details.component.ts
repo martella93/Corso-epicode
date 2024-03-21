@@ -7,6 +7,6 @@ import { Post } from 'src/app/models/post.interface';
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent {
- 
+  
 
 }

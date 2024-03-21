@@ -1,0 +1,9 @@
+<div class="card" *ngFor="let post of inactivePosts">
+    <h2>{{ post.title}}</h2>
+    <p>{{post.body}}</p>
+    <ul>
+        <li>Tags: <span *ngFor="let tag of post.tags">{{ tag }}</span></li>
+        <li>Reactions: {{ post.reactions }}</li>
+    </ul>
+    <div><a [routerLink]="['/details']" [queryParams]="{ id: post.id }" routerLinkActive="active"><button type="button" class="btn btn-primary">Dettagli</button></a></div>
+</div>

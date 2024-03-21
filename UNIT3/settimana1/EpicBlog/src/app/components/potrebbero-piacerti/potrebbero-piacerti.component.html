@@ -3,9 +3,9 @@
     <div class="container-fluid bg-white">
         <div class="card" *ngFor="let index of randomIndexes">
             <ul class="list-group">
-                <li class="list-group-item"><a href="">{{ posts && posts[index].title }}</a>
+                <li class="list-group-item"><a [routerLink]="['/details']" routerLinkActive="active>">{{ posts && posts[index].title }}</a>
                     <div class="d-flex text-uppercase">
-                        <a class="btn btn-primary" href="#" role="button">{{ posts && posts[index].tags[0] }}</a>
+                        <a class="btn btn-primary"  role="button" >{{ posts && posts[index].tags[0] }}</a>
                         <a class="btn btn-primary" href="#" role="button">{{ posts && posts[index].tags[1] }}</a>
                         <a class="btn btn-primary" href="#" role="button">{{ posts && posts[index].tags[2] }}</a>
                     </div>

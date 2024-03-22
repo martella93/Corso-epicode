@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top p-0">
+    <div class="container-fluid bg-black p-1 ">
+      <a class="navbar-brand" href="#"><img src="assets/img/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link text-white" [routerLink]="['/']" routerLinkActive="active" >Home</a>
+          <a class="nav-link text-secondary" [routerLink]="['/fiat']" routerLinkActive="active">Fiat</a>
+          <a class="nav-link text-secondary" [routerLink]="['/ford']" routerLinkActive="active">Ford</a>
+          <a class="nav-link text-secondary" [routerLink]="['/audi']" routerLinkActive="active">Audi</a>
+        </div>
+      </div>
+    </div>
+  </nav>

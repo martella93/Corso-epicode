@@ -1,0 +1,24 @@
+<div class="container d-flex">
+  <div>
+    <img src="https://listcarbrands.com/wp-content/uploads/2015/10/Audi-Logo-600x338.png">
+  </div>
+  <div class="container bg-light m-1">
+    <h1 class="mt-4">Le nostre Audi</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-5 mt-5" *ngFor="let auto of autos">
+      <div class="card" [style.background-color]="auto.available ? 'lightgreen' : 'lightcoral'">
+        <img class="card-img-top" src={{auto.modelImage}} alt="auto.model">
+        <div class="card-body">
+          <h3 class="card-title">Audi {{ auto.model }}</h3>
+          <a href="#" class="btn btn-primary">Anno: {{auto.year}}</a>
+          <a href="#" class="btn btn-primary mx-1">Prezzo: {{auto.price}}$</a>
+          <a href="#" class="btn btn-primary mx-1">{{auto.available ? 'Pronta consegna' : 'Non disponibile'}}</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

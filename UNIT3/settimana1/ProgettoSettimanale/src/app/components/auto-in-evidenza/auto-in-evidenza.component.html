@@ -1,0 +1,17 @@
+<div class="container text-center mt-3">
+    <h3>Auto in evidenza</h3>
+    <div class="container d-flex justify-content-evenly">
+        <div class="card" style="width: 18rem;" *ngFor="let carIndex of randomIndexes"
+            [ngClass]="{ 'bg-success': auto[carIndex].available, 'bg-danger': !auto[carIndex].available }">
+
+            <img src="{{auto[carIndex].modelImage}}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{auto[carIndex].brand}} {{auto[carIndex].model}}</h4>
+                <a href="#" class="btn btn-primary">Anno: {{auto[carIndex].year}}</a>
+                <a href="#" class="btn btn-primary mx-1">Prezzo: {{auto[carIndex].price}}$</a>
+                <a href="#" class="btn btn-primary mt-1">{{auto[carIndex].available ? 'Pronta consegna' : 'Non disponibile'}}</a>
+                <a class="btn btn-primary mt-1" [routerLink]="['/' + auto[carIndex].brand.toLowerCase()]">Tutte le nostre {{auto[carIndex].brand}}</a>
+            </div>
+        </div>
+    </div>
+</div>

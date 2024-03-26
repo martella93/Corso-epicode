@@ -6,10 +6,22 @@
                 <div class="col-3" *ngIf="post.completed">
                     <div class="card">
                         <!-- Il componente padre active post passa al componente figlio postcard il singolo post, chiamandolo esattamente col nome con cui è definito nel componente figlio, cioè post -->
-                        <app-post-card
-                            [post]="post"
-                            class="bg-success"
-                        ></app-post-card>
+                        <app-post-card [post]="post" class="bg-success">
+                            <button
+                                type="button"
+                                class="btn btn-primary btn-sm"
+                                (click)="disablePost(post.id, i)"
+                            >
+                                DISATTIVA
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-secondary ms-1 btn-sm"
+                                [routerLink]="['/activePosts', post.id]"
+                            >
+                                DETTAGLI
+                            </button>
+                        </app-post-card>
                     </div>
                 </div>
             </ng-container>

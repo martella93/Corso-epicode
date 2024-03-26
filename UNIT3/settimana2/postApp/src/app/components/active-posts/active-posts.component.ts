@@ -1,23 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.interface';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
     selector: 'app-active-posts',
     templateUrl: './active-posts.component.html',
     styleUrls: ['./active-posts.component.scss'],
 })
-export class ActivePostsComponent {
+export class ActivePostsComponent implements OnInit {
     posts!: Post[];
 
-    constructor() {
-        this.getPosts().then((posts) => {
-            this.posts = posts;
-        });
+    constructor(private postSrv: PostService) {
     }
 
-    async getPosts() {
-        let response = await fetch('https://jsonplaceholder.typicode.com/todos');
-        let data = await response.json();
-        return data;
+    async ngOnInit(): Promise<void> {
+        console.log('ngOnInit attivato');
+        const posts = await this.postSrv.getPosts();
+        this.posts = posts;
     }
+
+    disablePost(id: number, index: number) {
+        this.postSrv.updatePost(id, {completed: false});
+        this.posts.splice(index, 1);
+    }
+
 }

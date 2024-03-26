@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card mt-3" *ngFor="let post of activePosts">
+    <div class="card mt-3" *ngFor="let post of Posts" [ngStyle]="{ 'background-color': post.active ? 'green' : 'red' }">
         <h2>{{ post.title }}</h2>
         <p>{{ post.body }}</p>
         <ul>
@@ -7,7 +7,7 @@
             <li>Reactions: {{ post.reactions }}</li>
         </ul>
         <div>
-            <button type="button" class="btn btn-primary">Dettagli</button>
+            <button type="button" class="btn btn-primary" (click)="editClicked.emit()">EDIT</button>
         </div>
     </div>
 </div>

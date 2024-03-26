@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-active-posts',
-  templateUrl: './active-posts.component.html',
-  styleUrls: ['./active-posts.component.scss'],
+  selector: 'app-single-post',
+  templateUrl: './single-post.component.html',
+  styleUrls: ['./single-post.component.scss']
 })
-export class ActivePostsComponent {
+export class SinglePostComponent {
   Posts = [
     {
       id: 1,
@@ -250,6 +250,7 @@ export class ActivePostsComponent {
     },
   ];
 
-  activePosts = this.Posts.filter((post) => post.active);
+  @Input() post: any;
+  @Output() editClicked = new EventEmitter<void>();
 
 }

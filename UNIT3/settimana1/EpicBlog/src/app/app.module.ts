@@ -12,6 +12,7 @@ import { ActivePostsComponent } from './components/active-posts/active-posts.com
 import { InactivePostsComponent } from './components/inactive-posts/inactive-posts.component';
 import { Error404Component } from './components/error404/error404.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 const routes: Route[] = [
   {
@@ -46,6 +47,7 @@ const routes: Route[] = [
     ActivePostsComponent,
     InactivePostsComponent,
     PostDetailsComponent,
+    SinglePostComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],

@@ -1,12 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { PostInterface } from 'src/interfaces/post.interface';
 
-@Component({
-  selector: 'app-single-post',
-  templateUrl: './single-post.component.html',
-  styleUrls: ['./single-post.component.scss']
+@Injectable({
+  providedIn: 'root',
 })
-export class SinglePostComponent {
-  Posts = [
+export class PostsService {
+  posts: PostInterface[] = [
     {
       id: 1,
       title: 'His mother had always taught him',
@@ -249,7 +248,41 @@ export class SinglePostComponent {
       reactions: 0,
     },
   ];
+  constructor() {}
 
-  
+  get activePosts(): PostInterface[] {
+    return this.posts.filter((post) => post.active);
+  }
+  get inactivePosts(): PostInterface[] {
+    return this.posts.filter((post) => !post.active);
+  }
+  get topPost(): PostInterface {
+    return this.posts.sort((a, b) => b.reactions - a.reactions)[0];
+  }
+  get tags(): string[] {
+    const tags: string[] = [];
+    for (const post of this.posts) {
+      for (const tag of post.tags) {
+        if (tags.includes(tag)) {
+          continue;
+        } else tags.push(tag);
+      }
+    }
 
+    return tags;
+  }
+  getRandomPosts(num: number): PostInterface[] {
+    const randomPosts: PostInterface[] = [];
+    const numHistory: number[] = [];
+    for (let i = 0; i < num; i++) {
+      const random = Math.floor(Math.random() * this.posts.length);
+      if (numHistory.includes(random)) continue;
+      numHistory.push(random);
+      randomPosts.push(this.posts[random]);
+    }
+    return randomPosts;
+  }
+  getFilteredPosts(tag:string) {
+    return this.posts.filter(post => post.tags.includes(tag))
+  }
 }

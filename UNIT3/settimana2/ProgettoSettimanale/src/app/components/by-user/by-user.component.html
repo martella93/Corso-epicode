@@ -8,11 +8,11 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{ item.user.firstName }} {{ item.user.lastName }}</h5>
+              <h3 class="card-title">{{ item.user.firstName }} {{ item.user.lastName }}</h3>
+              <h5 class="card-text">Titolo: {{ item.user.title }}</h5>
               <p class="card-text">Email: {{ item.user.email }}</p>
               <p class="card-text">Title: {{ item.user.title }}</p>
               <p class="card-text">Todo: {{ item.todo.todo }}</p>
-              <p class="card-text">Completed: {{ item.todo.completed ? 'Yes' : 'No' }}</p>
             </div>
           </div>
         </div>

@@ -28,8 +28,7 @@ export class CompletedComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  
-  toggleTodoCompletion(todo: Todos): void {
-    todo.completed = !todo.completed;
+  toggleComplete(todo: Todos) {
+    todo.completed = !todo.completed; 
   }
 }

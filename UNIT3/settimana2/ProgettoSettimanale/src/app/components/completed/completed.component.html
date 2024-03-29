@@ -3,12 +3,14 @@
 
   <div class="todos-list">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let todo of todos" [ngClass]="{ 'bg-success': todo.completed}">
-        <input class="form-check-input me-1" type="checkbox" [checked]="todo.completed"
-          (change)="toggleTodoCompletion(todo)">
-        <label class="form-check-label stretched-link" [class.completed]="todo.completed">{{ todo.todo
+      <li class="list-group-item" *ngFor="let todo of todos" [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
+        <label class="custom-checkbox">
+          <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+          {{ todo.todo }}
+          
+      </label>{{ todo.todo
           }}
-        </label>
+       
     </ul>
   </div>
 </div>

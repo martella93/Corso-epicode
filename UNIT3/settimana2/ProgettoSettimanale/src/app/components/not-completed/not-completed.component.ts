@@ -28,6 +28,8 @@ export class NotCompletedComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
+  toggleComplete(todo: Todos) {
+    todo.completed = !todo.completed; 
+  }
 
 }

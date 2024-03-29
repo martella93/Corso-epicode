@@ -1,0 +1,31 @@
+<div class="container mb-5">
+    <div class="d-flex">
+        <input type="text" [(ngModel)]="nomeDaCercare" placeholder="Inserisci il nome da cercare">
+        <button class="btn btn-primary ms-3 p-1" (click)="ricercaTodos()">Cerca</button>
+    </div>
+
+    <div *ngIf="todosCorrispondenti">
+        <h3>Todo:</h3>
+        <ul>
+            <li *ngFor="let todo of todosCorrispondenti">{{ todo }}</li>
+        </ul>
+    </div>
+    
+    
+</div>
+<div class="container">
+    <div *ngIf="todos && todos.length > 0">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let todo of todos"
+                [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
+                <label class="custom-checkbox">
+                    <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+                    {{ todo.todo }}
+                    
+                </label>
+
+            </li>
+        </ul>
+
+    </div>
+</div>

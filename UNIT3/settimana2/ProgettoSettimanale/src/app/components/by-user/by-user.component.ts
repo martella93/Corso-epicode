@@ -12,33 +12,42 @@ import { Todos } from 'src/app/models/todos.interface';
 })
 export class ByUserComponent implements OnInit, OnDestroy {
   users: User[] = [];
-  todo: Todos[] = [];
+  todos: Todos[] = [];
+
   subscriptionTodo!: Subscription;
   subscriptionUser!: Subscription;
-  combinedArray: { todo: Todos; user: User }[] = [];
+  combinedArray!: {
+    [userId: number]: {
+      user: User;
+      todos: Todos[];
+    };
+  };
 
-  constructor(private todoService: TodoService, private userService: UsersService) {}
+  constructor(
+    private todoService: TodoService,
+    private userService: UsersService
+  ) {}
 
   ngOnInit(): void {
-    this.subscriptionTodo = this.todoService.getTodos().subscribe(
-      (data: Todos[]) => {
-        this.todo = data;
+    this.subscriptionTodo = this.todoService.getTodos().subscribe({
+      next: (data: Todos[]) => {
+        this.todos = data;
         this.combineArrays();
       },
-      (error) => {
+      error: (error) => {
         console.error(error);
-      }
-    );
+      },
+    });
 
-    this.subscriptionUser = this.userService.getUser().subscribe(
-      (data: User[]) => {
+    this.subscriptionUser = this.userService.getUser().subscribe({
+      next: (data: User[]) => {
         this.users = data;
         this.combineArrays();
       },
-      (error) => {
+      error: (error) => {
         console.error(error);
-      }
-    );
+      },
+    });
   }
 
   ngOnDestroy(): void {
@@ -46,27 +55,21 @@ export class ByUserComponent implements OnInit, OnDestroy {
     this.subscriptionUser.unsubscribe();
   }
 
+  combineArrays(): void {
+    if (!this.todos.length || !this.users.length) {
+      return;
+    }
+
+    this.combinedArray = {};
+
+    this.users.forEach((user) => {
+      this.combinedArray[user.id] = {
+        user,
+        todos: this.todos.filter((todo) => todo.userId === user.id),
+      };
+    });
+  }
   toggleToDoCompletion(todo: Todos): void {
     todo.completed = !todo.completed;
-    this.saveTodos();
-  }
-
-  combineArrays(): void {
-    if (this.todo.length > 0 && this.users.length > 0) {
-      this.combinedArray = this.todo.map((todo, index) => ({
-        todo,
-        user: this.users[index],
-      }));
-    }
-  }
-
-  toggleTodoCompletion(todo: Todos): void {
-    todo.completed = !todo.completed;
-  }
-  
-
-  saveTodos(): void {
-    const todosString = JSON.stringify(this.todo);
-    sessionStorage.setItem('todos', todosString);
   }
 }

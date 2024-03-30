@@ -1,17 +1,19 @@
 <div class="container">
-    <h1>Not Completed Todos</h1>
-  
+  <h1>Not Completed Todos</h1>
+
+  <div class="todos-list">
     <div class="todos-list">
-      <div class="todos-list">
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let todo of todos" [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
-            <label class="custom-checkbox">
-              <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
-              {{ todo.todo }}
-              
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let todo of notCompletedtodos; let i= index;"
+          [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
+          <label class="custom-checkbox">
+            <input type="checkbox" [(ngModel)]="todo.completed" (click)="taskNotCompleted(todo.id, i )">
+            {{ todo.todo }}
+            <br>
+            <span><strong>Name: {{ getUserFirstName(todo.userId) }}</strong></span>
+
           </label>
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
-  
+</div>

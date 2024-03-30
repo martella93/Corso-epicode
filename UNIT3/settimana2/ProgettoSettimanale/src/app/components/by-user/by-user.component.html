@@ -12,7 +12,8 @@
               <h5 class="card-text">Titolo: {{ item.user.title }}</h5>
               <p class="card-text">Email: {{ item.user.email }}</p>
               <p class="card-text">Title: {{ item.user.title }}</p>
-              <p class="card-text">Todo: {{ item.todo.todo }}</p>
+              <p class="card-text" [ngClass]="{ 'bg-success': item.todo.completed, 'bg-danger': !item.todo.completed }"><label>
+                <input type="checkbox" [(ngModel)]="item.todo.completed" (click)="toggleTodoCompletion(item.todo)">Todo: {{ item.todo.todo }}</label></p>
             </div>
           </div>
         </div>

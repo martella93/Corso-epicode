@@ -60,6 +60,11 @@ export class ByUserComponent implements OnInit, OnDestroy {
     }
   }
 
+  toggleTodoCompletion(todo: Todos): void {
+    todo.completed = !todo.completed;
+  }
+  
+
   saveTodos(): void {
     const todosString = JSON.stringify(this.todo);
     sessionStorage.setItem('todos', todosString);

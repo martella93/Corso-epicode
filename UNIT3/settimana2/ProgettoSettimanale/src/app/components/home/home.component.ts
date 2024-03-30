@@ -11,20 +11,25 @@ import { User } from 'src/app/models/user.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  allTodos: Todos[] = []; 
   todos: Todos[] = [];
   users: User[] = [];
-  nomeDaCercare: string | undefined;
-  todosCorrispondenti: string[] = [];
+  selectedUserId: number | null = null;
 
   todosSubscription!: Subscription;
   usersSubscription!: Subscription;
 
-  constructor(private todoService: TodoService, private userService: UsersService) {}
+  constructor(
+    private todoService: TodoService,
+    private userService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.todosSubscription = this.todoService.getTodos().subscribe(
       (data: Todos[]) => {
-        this.todos = data;
+        this.allTodos = data; 
+        console.log('dati ottenuti',this.allTodos)
+        this.todos = data; 
       },
       (error) => {
         console.error(error);
@@ -46,27 +51,31 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.usersSubscription.unsubscribe();
   }
 
- 
-  toggleComplete(todo: Todos) {
-    todo.completed = !todo.completed; 
+  toggleTodoCompletion(todo: Todos): void {
+    todo.completed = !todo.completed;
+  }
+  
+  getTodosByUserId(userId: number): Todos[] {
+    const filteredTodos = this.allTodos.filter(todo => todo.userId === userId);
+    console.log('Filtered Todos:', filteredTodos);
+    return filteredTodos;
   }
 
-  saveTodos(): void {
-    const todosString = JSON.stringify(this.todos);
-    sessionStorage.setItem('todos', todosString);
-  }
-
-  ricercaTodos(): void {
-    this.todosCorrispondenti = [];
-    const utenteTrovato = this.users.find(
-      (utente) => utente.firstName === this.nomeDaCercare
-    );
-    if (utenteTrovato) {
-      this.todosCorrispondenti = this.todos
-        .filter((todo) => todo.userId === utenteTrovato.id)
-        .map((todo) => todo.todo);
+  filterTodosByUserId(): void {
+    console.log('All Todos:', this.allTodos);
+    console.log('Selected User ID:', this.selectedUserId);
+    
+    if (this.selectedUserId !== null) {
+      this.todos = this.getTodosByUserId(this.selectedUserId);
+      console.log('Filtered Todos:', this.todos);
     } else {
-      console.log(`Nessun utente trovato con il nome ${this.nomeDaCercare}.`);
+      this.todos = this.allTodos; 
     }
+  }
+  
+
+  getUserFirstName(userId: number): string {
+    const user = this.users.find((u) => u.id === userId);
+    return user ? user.firstName : '';
   }
 }

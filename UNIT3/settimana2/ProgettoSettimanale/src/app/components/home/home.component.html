@@ -1,27 +1,22 @@
 <div class="container mb-5">
     <div class="d-flex">
-        <input type="text" [(ngModel)]="nomeDaCercare" placeholder="Inserisci il nome da cercare">
-        <button class="btn btn-primary ms-3 p-1" (click)="ricercaTodos()">Cerca</button>
+        <select [(ngModel)]="selectedUserId" (change)="filterTodosByUserId()">
+            <option *ngFor="let user of users" [value]="user.id">{{ user.firstName }}</option>
+          </select>
+          
     </div>
-
-    <div *ngIf="todosCorrispondenti">
-        <ul>
-            <li *ngFor="let todo of todosCorrispondenti">{{ todo }}</li>
-        </ul>
-    </div>
-    
-    
 </div>
 <div class="container">
     <div *ngIf="todos && todos.length > 0">
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let todo of todos"
                 [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
-                <label class="custom-checkbox">
-                    <input type="checkbox" class="real-checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+                <label>
+                    <input type="checkbox" [(ngModel)]="todo.completed" (click)="toggleTodoCompletion(todo)">
                     {{ todo.todo }}
-                    
                 </label>
+                <br>
+                <span><strong>Name: {{ getUserFirstName(todo.userId) }}</strong></span>
 
             </li>
         </ul>

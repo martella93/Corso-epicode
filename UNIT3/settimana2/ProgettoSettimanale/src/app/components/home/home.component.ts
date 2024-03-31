@@ -11,10 +11,9 @@ import { User } from 'src/app/models/user.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  allTodos: Todos[] = []; 
+  allTodos: Todos[] = [];
   todos: Todos[] = [];
   users: User[] = [];
-  selectedUserId: number | null = null;
 
   todosSubscription!: Subscription;
   usersSubscription!: Subscription;
@@ -27,9 +26,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.todosSubscription = this.todoService.getTodos().subscribe(
       (data: Todos[]) => {
-        this.allTodos = data; 
-        console.log('dati ottenuti',this.allTodos)
-        this.todos = data; 
+        this.allTodos = data;
+        console.log('Dati ottenuti:', this.allTodos);
+        this.todos = this.allTodos;
       },
       (error) => {
         console.error(error);
@@ -51,31 +50,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.usersSubscription.unsubscribe();
   }
 
-  toggleTodoCompletion(todo: Todos): void {
-    todo.completed = !todo.completed;
+  toggleTodoCompletion(todoId: number): void {
+    this.todoService.toggleCompletion(todoId);
   }
-  
-  getTodosByUserId(userId: number): Todos[] {
-    const filteredTodos = this.allTodos.filter(todo => todo.userId === userId);
-    console.log('Filtered Todos:', filteredTodos);
-    return filteredTodos;
-  }
-
-  filterTodosByUserId(): void {
-    console.log('All Todos:', this.allTodos);
-    console.log('Selected User ID:', this.selectedUserId);
-    
-    if (this.selectedUserId !== null) {
-      this.todos = this.getTodosByUserId(this.selectedUserId);
-      console.log('Filtered Todos:', this.todos);
-    } else {
-      this.todos = this.allTodos; 
-    }
-  }
-  
 
   getUserFirstName(userId: number): string {
     const user = this.users.find((u) => u.id === userId);
-    return user ? user.firstName : '';
+    return user ? user.firstName : '' ;
   }
 }

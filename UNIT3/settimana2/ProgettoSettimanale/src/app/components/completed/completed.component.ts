@@ -7,21 +7,24 @@ import { UsersService } from 'src/app/service/users.service';
 @Component({
   selector: 'app-completed',
   templateUrl: './completed.component.html',
-  styleUrls: ['./completed.component.scss']
+  styleUrls: ['./completed.component.scss'],
 })
 export class CompletedComponent implements OnInit, OnDestroy {
   completedTodos: Todos[] = [];
   users: User[] = [];
   todosSubscription!: Subscription;
   usersSubscription!: Subscription;
+  
 
-  constructor(private todoService: TodoService, private userService: UsersService) {}
+  constructor(
+    private todoService: TodoService,
+    private userService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.todosSubscription = this.todoService.getTodos().subscribe(
       (data: Todos[]) => {
-        this.completedTodos = data.filter(todo => todo.completed);
-        
+        this.completedTodos = data.filter((todo) => todo.completed);
       },
       (error) => {
         console.error(error);
@@ -45,12 +48,9 @@ export class CompletedComponent implements OnInit, OnDestroy {
     return user ? user.firstName : '';
   }
 
-
   taskNotCompleted(id: number, index: number) {
     this.todoService.updateTask(id, { completed: true });
     this.completedTodos.splice(index, 1);
-}
-
-
-  
+    
+  }
 }

@@ -13,6 +13,8 @@ import { Todos } from 'src/app/models/todos.interface';
 export class ByUserComponent implements OnInit, OnDestroy {
   users: User[] = [];
   todos: Todos[] = [];
+  searchUserTerm: string = ''; 
+  filteredUsers: User[] = [];
 
   subscriptionTodo!: Subscription;
   subscriptionUser!: Subscription;
@@ -71,5 +73,23 @@ export class ByUserComponent implements OnInit, OnDestroy {
   }
   toggleToDoCompletion(todo: Todos): void {
     todo.completed = !todo.completed;
+  }
+  filterUsers(): void {
+    if (!this.searchUserTerm.trim()) {
+      this.filteredUsers = [...this.users]; 
+    } else {
+      this.filteredUsers = this.users.filter(user =>
+        user.firstName.toLowerCase().includes(this.searchUserTerm.toLowerCase())
+      ); 
+    }
+  }
+  
+  matchesSearch(user: User): boolean {
+    if (!this.searchUserTerm.trim()) {
+      return true; 
+    }
+    const searchTerm = this.searchUserTerm.toLowerCase();
+    const fullName = (user.firstName + ' ' + user.lastName).toLowerCase();
+    return fullName.includes(searchTerm);
   }
 }

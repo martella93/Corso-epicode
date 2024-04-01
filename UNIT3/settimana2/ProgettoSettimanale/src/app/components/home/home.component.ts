@@ -11,7 +11,6 @@ import { User } from 'src/app/models/user.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  allTodos: Todos[] = [];
   todos: Todos[] = [];
   users: User[] = [];
 
@@ -26,9 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.todosSubscription = this.todoService.getTodos().subscribe(
       (data: Todos[]) => {
-        this.allTodos = data;
-        console.log('Dati ottenuti:', this.allTodos);
-        this.todos = this.allTodos;
+        this.todos = data;
       },
       (error) => {
         console.error(error);
@@ -56,6 +53,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getUserFirstName(userId: number): string {
     const user = this.users.find((u) => u.id === userId);
-    return user ? user.firstName : '' ;
+    return user ? user.firstName : '';
   }
 }

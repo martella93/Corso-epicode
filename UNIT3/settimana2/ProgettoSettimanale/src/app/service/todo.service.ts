@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Todos } from '../models/todos.interface';
-import { User } from '../models/user.interface';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { User } from '../models/user.interface';
 export class TodoService {
   todosSubject = new BehaviorSubject<Todos[]>([]);
   todos: Todos[] = [];
-  users: User[] = [];
+  
 
   constructor(private http: HttpClient) {}
 

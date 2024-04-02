@@ -22,11 +22,5 @@ export class TodoService {
       todo.id ? { ...todo, ...data } : todo
     );
   }
-  toggleCompletion(id: number) {
-    const todo = this.todos.find(todo => todo.id === id);
-    if (todo) {
-      todo.completed = !todo.completed;
-      this.todosSubject.next([...this.todos]); 
-    }
-  }
+  
 }

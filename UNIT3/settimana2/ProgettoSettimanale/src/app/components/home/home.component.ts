@@ -47,8 +47,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.usersSubscription.unsubscribe();
   }
 
-  toggleTodoCompletion(todoId: number): void {
-    this.todoService.toggleCompletion(todoId);
+  toggleToDoCompletion(todo: Todos): void {
+    todo.completed = !todo.completed;
   }
 
   getUserFirstName(userId: number): string {

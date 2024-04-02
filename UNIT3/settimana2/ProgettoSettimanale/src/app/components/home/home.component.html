@@ -4,7 +4,7 @@
             <li class="list-group-item" *ngFor="let todo of todos"
                 [ngClass]="{ 'bg-success': todo.completed, 'bg-danger': !todo.completed }">
                 <label>
-                    <input (change)="toggleTodoCompletion(todo.id)" type="checkbox" id="{{todo.id}}" [(ngModel)]="todo.completed" >
+                    <input type="checkbox" [(ngModel)]="todo.completed" (click)="toggleToDoCompletion(todo)">
                     {{ todo.todo }}
                 </label>
                 <br>

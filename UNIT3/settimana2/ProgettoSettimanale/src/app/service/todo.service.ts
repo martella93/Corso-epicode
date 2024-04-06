@@ -19,7 +19,7 @@ export class TodoService {
   }
   updateTask(id: number, data: Partial<Todos>) {
     this.todos = this.todos.map((todo) =>
-      todo.id ? { ...todo, ...data } : todo
+      todo.id === id ? { ...todo, ...data } : todo
     );
   }
   

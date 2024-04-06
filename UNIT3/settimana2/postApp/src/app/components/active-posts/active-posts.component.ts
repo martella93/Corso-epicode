@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.interface';
 import { PostService } from 'src/app/service/post.service';
 
+
 @Component({
     selector: 'app-active-posts',
     templateUrl: './active-posts.component.html',

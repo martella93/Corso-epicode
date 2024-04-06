@@ -1,0 +1,18 @@
+<div class="container">
+    <h2 class="text-center mt-2">FILM</h2>
+    <div class="container mt-3">
+        <div class="row">
+            <ng-container *ngFor="let movie of movies; let i = index">
+                <div class="col-4">
+
+                      
+                    <app-film-card [movies]="movie">
+
+                    </app-film-card>
+
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    
+</div>

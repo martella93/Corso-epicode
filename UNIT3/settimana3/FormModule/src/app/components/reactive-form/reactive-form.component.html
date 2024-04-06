@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="form">
+                <div formGroupName="userInfo">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                        <span *ngIf="getFormC('userInfo.name')?.invalid && getFormC('userInfo.name')?.touched">
+                            <ng-container *ngIf="getErrors('userInfo.name', 'required')">Campo obbligatorio
+                            </ng-container>
+                        </span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                        <span *ngIf="getFormC('userInfo.name')?.invalid && getFormC('userInfo.name')?.touched">
+                            <ng-container *ngIf="getErrors('userInfo.name', 'required')">Campo obbligatorio
+                            </ng-container>
+                        </span>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

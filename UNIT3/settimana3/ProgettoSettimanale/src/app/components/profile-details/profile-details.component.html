@@ -1,0 +1,10 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+        <div *ngIf="currentUser" class="card-header">Utente corrente</div>
+        <div class="card-body">
+            <h5 class="card-title">Nome: {{currentUser?.user?.name}}</h5>
+            <h5 class="card-title">Email: {{currentUser?.user?.email}}</h5>
+
+        </div>
+    </div>
+</div>

@@ -48,7 +48,7 @@ export class NotCompletedComponent implements OnInit, OnDestroy {
   }
 
   taskCompleted(id: number, index: number) {
-    this.todoService.updateTask(id, { completed: false });
+    this.todoService.updateTask(id, { completed: true });
     this.notCompletedtodos.splice(index, 1);
   }
  

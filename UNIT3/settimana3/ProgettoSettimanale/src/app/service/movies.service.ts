@@ -3,16 +3,17 @@ import { MoviesPopular } from '../models/movies-popular.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { BehaviorSubject } from 'rxjs';
-
+import { AuthService } from '../auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
   private apiURL = environment.apiURL;
   private favorites: MoviesPopular[] = [];
+  private favoritesKeyPrefix = 'favorites_'; // Aggiungi un prefisso per distinguere i preferiti per ogni utente
   private favoritesSubject = new BehaviorSubject<MoviesPopular[]>([]);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authSrv: AuthService) {
     this.loadFavorites();
   }
 
@@ -26,22 +27,27 @@ export class MoviesService {
 
   // Aggiorna i preferiti
   updateFavorites(favorites: MoviesPopular[]) {
-    this.favorites = favorites;
-    this.favoritesSubject.next([...this.favorites]);
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    const userId = this.authSrv.getCurrentUser(); // Ottieni l'ID dell'utente corrente
+    if (userId) {
+      this.favorites = favorites;
+      this.favoritesSubject.next([...this.favorites]);
+      localStorage.setItem(`${this.favoritesKeyPrefix}${userId}`, JSON.stringify(this.favorites));
+    }
   }
 
   // Ottieni i preferiti
   getFavorites() {
     return this.favoritesSubject.asObservable();
   }
-
-  // Carica i preferiti dal localStorage
+  
   loadFavorites() {
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      this.favorites = JSON.parse(storedFavorites);
-      this.favoritesSubject.next([...this.favorites]);
+    const userId = this.authSrv.getCurrentUser; // Ottieni l'ID dell'utente corrente
+    if (userId) {
+      const storedFavorites = localStorage.getItem(`${this.favoritesKeyPrefix}${userId}`);
+      if (storedFavorites) {
+        this.favorites = JSON.parse(storedFavorites);
+        this.favoritesSubject.next([...this.favorites]);
+      }
     }
   }
 
@@ -63,4 +69,5 @@ export class MoviesService {
   isMovieInFavorites(movie: MoviesPopular) {
     return this.favorites.some(fav => fav.id === movie.id);
   }
+  
 }

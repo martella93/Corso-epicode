@@ -70,8 +70,7 @@ export class AuthService {
     const userJson = localStorage.getItem('user');
     return userJson ? JSON.parse(userJson) : null;
   }
-  
-  
+
 
   private errors(err: any) {
     console.log(err.error);

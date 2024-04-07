@@ -9,6 +9,7 @@
                 <img src="{{'https://image.tmdb.org/t/p/w500' + movie.poster_path}}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.original_title }}</h5>
+                    <button type="button" (click)="removeFavorite(movie)" class="btn-close" aria-label="Close"></button>
                 </div>
             </div>
         </div>

@@ -20,4 +20,5 @@ export class UsersService {
     const currentUserId = 1; 
     return this.user.find((user) => user.id === currentUserId) || null;
   }
+  
 }

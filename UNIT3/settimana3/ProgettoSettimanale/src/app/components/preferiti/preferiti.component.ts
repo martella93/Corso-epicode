@@ -21,9 +21,23 @@ export class PreferitiComponent {
       this.favorites = favorites;
     });
   }
+
+  /*loadFavorites(): void {
+    // Ottieni l'ID dell'utente corrente
+    const userId = this.authService.getCurrentUserId();
+    if (userId) {
+      this.favoriteService.getFavorites(userId).subscribe(favorites => {
+        this.favorites = favorites;
+      });
+    } else {
+      this.favorites = [];
+    }
+  }*/
+
   removeFavorite(movie: MoviesPopular) {
     this.favorites = this.favorites.filter(fav => fav.id !== movie.id);
     this.moviesService.updateFavorites(this.favorites);
   }
   
+ 
 }

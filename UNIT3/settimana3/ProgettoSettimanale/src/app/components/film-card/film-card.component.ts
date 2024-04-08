@@ -18,10 +18,9 @@ ngOnInit(): void {
 }
 toggleFavorite(): void {
   this.isFavorite = !this.isFavorite;
-    const currentUser = this.authSrv.getCurrentUser(); // Ottieni l'utente corrente
+    const currentUser = this.authSrv.getCurrentUserId(); // Ottieni l'utente corrente
+    console.log(currentUser)
     if (currentUser) {
-      const userIdentifier = currentUser.user.id; // Ottieni l'identificatore univoco dell'utente
-      if (this.isFavorite) {
         this.moviesSrv.addFavorite(this.movies); // Aggiungi il film ai preferiti per l'utente corrente
       } else {
         this.moviesSrv.removeFavorite(this.movies); // Rimuovi il film dai preferiti per l'utente corrente
@@ -29,4 +28,29 @@ toggleFavorite(): void {
     }
   }
 
-}
+  /*toggleFavorite(): void {
+    this.isFavorite = !this.isFavorite;
+    const userId = this.authSrv.getCurrentUserId();
+  
+    if (userId) {
+      if (this.isFavorite) {
+        this.moviesSrv.addFavorite(this.movies, userId)
+          .subscribe(response => {
+            // Gestisci aggiunta avvenuta con successo (opzionale)
+          }, error => {
+            console.error("Errore durante l'aggiunta ai preferiti:", error);
+          });
+      } else {
+        this.moviesSrv.removeFavorite(this.movies.id, userId)
+          .subscribe(response => {
+            // Gestisci rimozione avvenuta con successo (opzionale)
+          }, error => {
+            console.error("Errore durante la rimozione dai preferiti:", error);
+          });
+      }
+    } else {
+      console.warn("Utente non autenticato, impossibile salvare i preferiti.");
+    }
+  }*/
+
+

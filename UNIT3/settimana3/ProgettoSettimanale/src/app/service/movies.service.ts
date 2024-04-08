@@ -14,7 +14,7 @@ export class MoviesService {
   private favoritesSubject = new BehaviorSubject<MoviesPopular[]>([]);
 
   constructor(private http: HttpClient, private authSrv: AuthService) {
-    this.loadFavorites();
+    
   }
 
   getMovies() {
@@ -24,6 +24,7 @@ export class MoviesService {
   getMovieByID(id: number) {
     return this.http.get<MoviesPopular>(`${this.apiURL}movies-popular/${id}`);
   }
+  
 
   // Aggiorna i preferiti
   updateFavorites(favorites: MoviesPopular[]) {
@@ -39,18 +40,12 @@ export class MoviesService {
   getFavorites() {
     return this.favoritesSubject.asObservable();
   }
+  /*getFavorites(userId: string): MoviesPopular[] | null {
+    const favoritesJson = localStorage.getItem(`${this.favoritesKeyPrefix}${userId}`);
+    return favoritesJson ? JSON.parse(favoritesJson) : null;
+  }*/
   
-  loadFavorites() {
-    const userId = this.authSrv.getCurrentUser; // Ottieni l'ID dell'utente corrente
-    if (userId) {
-      const storedFavorites = localStorage.getItem(`${this.favoritesKeyPrefix}${userId}`);
-      if (storedFavorites) {
-        this.favorites = JSON.parse(storedFavorites);
-        this.favoritesSubject.next([...this.favorites]);
-      }
-    }
-  }
-
+ 
   // Aggiungi un film ai preferiti
   addFavorite(movie: MoviesPopular) {
     if (!this.isMovieInFavorites(movie)) {
@@ -58,6 +53,13 @@ export class MoviesService {
       this.updateFavorites(this.favorites);
     }
   }
+
+
+  /*addFavorite(movie: MoviesPopular, userId: string): void {
+    const favorites = this.getFavorites(userId) || [];
+    favorites.push(movie);
+    localStorage.setItem(`${this.favoritesKeyPrefix}${userId}`, JSON.stringify(favorites));
+  }*/
 
   // Rimuovi un film dai preferiti
   removeFavorite(movie: MoviesPopular) {

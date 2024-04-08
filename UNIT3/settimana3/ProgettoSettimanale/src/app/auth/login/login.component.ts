@@ -16,7 +16,7 @@ export class LoginComponent {
     console.log(form.value);
     this.authSrv.login(form.value).subscribe(
       () => {
-        // Login riuscito, gestisci l'accesso
+        
         this.router.navigate(['/film']);
       },
       (error) => {

@@ -70,7 +70,11 @@ export class AuthService {
     const userJson = localStorage.getItem('user');
     return userJson ? JSON.parse(userJson) : null;
   }
-
+  getCurrentUserId(): string | null {
+    const userJson = localStorage.getItem('user');
+    const currentUser = userJson ? JSON.parse(userJson) : null;
+    return currentUser ? currentUser.user.id : null;
+  }
 
   private errors(err: any) {
     console.log(err.error);

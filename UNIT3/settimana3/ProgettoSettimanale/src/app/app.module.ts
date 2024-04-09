@@ -18,6 +18,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import { AuthGuard } from './auth/auth.guard';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { FilmDetailsComponent } from './components/film-details/film-details.component';
+import { Error404Component } from './components/error404/error404.component';
 
 const routes: Route[] = [
   {
@@ -63,6 +64,10 @@ const routes: Route[] = [
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: '**',
+    component: Error404Component
+}
 ];
 
 @NgModule({
@@ -79,6 +84,7 @@ const routes: Route[] = [
     PreferitiComponent,
     FilmCardComponent,
     FilmDetailsComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,

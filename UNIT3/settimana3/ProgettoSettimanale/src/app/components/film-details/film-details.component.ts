@@ -9,7 +9,7 @@ import { MoviesPopular } from 'src/app/models/movies-popular.interface';
   styleUrls: ['./film-details.component.scss'],
 })
 export class FilmDetailsComponent implements OnInit {
-  movie!: MoviesPopular; // Modifica il nome della variabile per rappresentare un singolo film
+  movie!: MoviesPopular; 
 
   constructor(
     private router: ActivatedRoute,
@@ -19,8 +19,8 @@ export class FilmDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
       const id = +params['id'];
-      this.moviesSrv.getMovieByID(id).subscribe((data) => { // Modifica il metodo per ottenere i dettagli del film
-        this.movie = data; // Assegna i dettagli del film alla variabile movie
+      this.moviesSrv.getMovieByID(id).subscribe((data) => { 
+        this.movie = data; 
       });
     });
   }

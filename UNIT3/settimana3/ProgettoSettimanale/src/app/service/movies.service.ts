@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class MoviesService {
   private apiURL = environment.apiURL;
   private favorites: MoviesPopular[] = [];
-  private favoritesKeyPrefix = 'favorites_'; // Aggiungi un prefisso per distinguere i preferiti per ogni utente
+  private favoritesKeyPrefix = 'favorites_'; // prefisso per distinguere i preferiti per ogni utente
   private favoritesSubject = new BehaviorSubject<MoviesPopular[]>([]);
 
   constructor(private http: HttpClient, private authSrv: AuthService) {
@@ -46,7 +46,7 @@ export class MoviesService {
   }*/
   
  
-  // Aggiungi un film ai preferiti
+ 
   addFavorite(movie: MoviesPopular) {
     if (!this.isMovieInFavorites(movie)) {
       this.favorites.push(movie);
@@ -61,7 +61,7 @@ export class MoviesService {
     localStorage.setItem(`${this.favoritesKeyPrefix}${userId}`, JSON.stringify(favorites));
   }*/
 
-  // Rimuovi un film dai preferiti
+
   removeFavorite(movie: MoviesPopular) {
     this.favorites = this.favorites.filter(fav => fav.id !== movie.id);
     this.updateFavorites(this.favorites);

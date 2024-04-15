@@ -79,21 +79,9 @@
   "posts": [
     {
       "userId": 1,
-      "id": 2,
-      "title": "Homemade Pizza Night",
-      "body": "Decided to make homemade pizza tonight and it turned out delicious! Who needs takeout when you can make it better at home? #Cooking #PizzaNight"
-    },
-    {
-      "userId": 1,
       "id": 3,
       "title": "Morning Run Views",
       "body": "Nothing beats the peace and serenity of a morning run by the river. Started the day off feeling refreshed and energized! #MorningRun #Nature"
-    },
-    {
-      "userId": 1,
-      "id": 4,
-      "title": "Bookworm Adventures",
-      "body": "Spent the afternoon curled up with a good book and lost track of time. There's something magical about getting lost in another world. #Reading #BookLove"
     },
     {
       "title": "Garde",
